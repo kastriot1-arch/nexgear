@@ -1,0 +1,4 @@
+config/database.php
+uploads/
+assets/images/
+*.log
