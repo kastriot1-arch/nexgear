@@ -24,9 +24,7 @@ class User
         return (int)($row['cnt'] ?? 0);
     }
 
-    /**
-     * Attempt login. Returns user array on success, false on failure.
-     */
+   /* Provon nje login dhe kthen nje user array nese ka sukses dhe nje "false" nese deshton */
     public static function login(string $email, string $password): array|false
     {
         $user = self::findByEmail($email);
@@ -35,9 +33,7 @@ class User
         return $user;
     }
 
-    /**
-     * Register a new user. Returns the new user ID on success, false on duplicate email.
-     */
+   /*Regjistron User dhe kthen nje ID nese ka sukses*/
     public static function register(string $name, string $email, string $password, string $role = 'user'): int|false
     {
         if (self::findByEmail($email)) return false;
@@ -53,9 +49,7 @@ class User
         return (int)Database::lastInsertId();
     }
 
-    /**
-     * Start a session for the given user record.
-     */
+   
     public static function startSession(array $user): void
     {
         $_SESSION['user_id']   = $user['id'];
